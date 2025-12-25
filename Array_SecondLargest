@@ -1,0 +1,50 @@
+ internal class Program
+ {
+     static void Main(string[] args)
+     { //find second largest integer in array  
+
+         //-------brute---
+         // sort the array and then loop through each element starting n-2 index to if the elemnt is less than largest.
+         //TIme Complexity =>  O(NlogN + N)
+
+         int[] inputArray = { 3, 2, 9, 5, 9, 7 };
+         int largestNumber = inputArray[0];
+         int secondLargest = -1; // or any mininum number
+
+         //------Better---
+         // Time Complexity => O(N) + O(N) => O(2N)
+
+         for (int i = 1; i < 6; i++)
+         {
+             if (largestNumber < inputArray[i])
+             {
+                 largestNumber = inputArray[i];
+             }
+         }
+         for (int i = 1; i < 6; i++)
+         {
+             if (inputArray[i] > secondLargest && inputArray[i] != largestNumber)
+             {
+                 secondLargest = inputArray[i];
+             }
+         }
+         Console.WriteLine(secondLargest);
+
+         //---------------optimal------------
+         // TIme complexity => O(N)
+         for (int i = 1; i < 6; i++)
+         {
+             if (largestNumber < inputArray[i])
+             {
+                 secondLargest = largestNumber;
+                 largestNumber = inputArray[i];
+             }
+             if (secondLargest < inputArray[i] && inputArray[i] < largestNumber)
+             {
+                 secondLargest = inputArray[i];
+             }
+         }
+         Console.WriteLine(secondLargest);
+         Console.WriteLine(largestNumber);
+     }
+ }
