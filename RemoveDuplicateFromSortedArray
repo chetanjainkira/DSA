@@ -1,0 +1,35 @@
+namespace Practice
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        { //Remove duplicate from Soerted array and do in place update.
+
+            int[] inputArray = { 1,1,2,2,2,4,4,5 };
+            //brute version use hashset to store the value 
+            // Time Complaxity O(2N)
+
+            HashSet<int> list = new HashSet<int>(); ///will store non duplicate value
+
+            for (int i = 0; i < inputArray.Length; i++) { 
+                list.Add(inputArray[i]);
+            }
+
+            foreach (int i in list) {
+                Console.WriteLine(i);
+            }
+
+        //optimal Approach
+        // Time Complaxity => O(N)
+        int j = 0;
+        for (int i = 1; i < inputArray.Length; i++)
+        {
+            if (inputArray[i] != inputArray[j])
+            {
+                inputArray[j+1] = inputArray[i];
+                j++;
+            }
+        }
+        Console.WriteLine( "j:" +j+1);
+    }
+}
