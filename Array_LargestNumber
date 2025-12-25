@@ -1,0 +1,25 @@
+internal class Program
+{
+    static void Main(string[] args)
+    {
+        //brute
+        // sort the array and find length -1 index
+        //vTIme Complexity O(nlogn)
+
+        //optimal
+        //find largest integer in array  
+        // TIme complexity O(N)
+        int[] inputArray = { 3,2,1,5,9};
+        
+        int largestNumber = inputArray[0];
+        for(int i=1;i<5; i++)
+        {
+            if (largestNumber < inputArray[i])
+            {
+                largestNumber = inputArray[i];
+            }
+        }
+        Console.WriteLine(largestNumber);
+
+    }
+}
